@@ -1,0 +1,42 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.img1 {
+  background-image: url("ronaldo.avif");
+}
+
+.img2 {
+  background-image: url("messi.webp");
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Black block section */
+.text-block {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}

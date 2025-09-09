@@ -1,0 +1,13 @@
+
+.text{
+    color: black;
+    font-size: 30px;
+}
+select{
+    width: 300px;
+    padding: 20px;
+    border: 0;
+    background-color: lightgrey;
+    text-align: center;
+    font-size: 30px;
+}
