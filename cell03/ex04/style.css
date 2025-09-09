@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 300px;
+    text-align: center;
+}
+
+/* Balloon */
+.balloon {
+    display: inline-block;
+    font-size: 36px;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+/* Calculator */
+input, select {
+    margin: 5px;
+    padding: 8px;
+    font-size: 16px;
+}
+input[type="submit"], button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-top: 8px;
+}
+input[type="submit"]:hover, button:hover {
+    background-color: #0056b3;
+}
+
+/* Todo */
+#ft_list div {
+    background: #e0e0e0;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#ft_list div:hover {
+    background: #d0d0d0;
+}
