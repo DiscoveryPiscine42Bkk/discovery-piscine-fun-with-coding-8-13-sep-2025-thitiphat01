@@ -1,0 +1,260 @@
+/* ==== ตัวแปรสีและพื้นฐาน ==== */
+:root{
+  --bg:#f7f7fb;
+  --fg:#111;
+  --muted:#555;
+  --card:#fff;
+  --line:#e5e7eb;
+  --link:#0ea5e9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family: 'Poppins', 'Noto Sans Thai', system-ui, -apple-system, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+/* ==== Navbar ==== */
+.navbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #111;
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+}
+.nav-inner{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .brand{
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+.navbar .links{
+  display:flex;
+  gap:8px;
+}
+.navbar .links a{
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 600;
+  padding: 8px 14px;
+  background:#222;
+  border-radius: 8px;
+  transition: .2s;
+}
+.navbar .links a:hover{
+  background:#333;
+  color:#fff;
+}
+
+/* ==== Wrap ==== */
+.wrap{
+  max-width: 960px;
+  margin: 84px auto 32px;
+  padding: 0 20px;
+}
+@media (max-width: 600px){
+  .wrap{ margin: 100px auto 32px; }
+}
+.section{ scroll-margin-top: 90px; }
+
+/* ==== กล่อง/การ์ด ==== */
+.card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  margin-bottom: 20px;
+}
+.section-title{
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+/* ==== รูปโปรไฟล์ ==== */
+.avatar-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.avatar{
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--line);
+}
+@media (max-width: 560px){
+  .avatar{ width:140px; height:140px; }
+}
+
+/* ==== ตัวอักษร ==== */
+h1{
+  margin: 8px 0 0;
+  font-size: 28px;
+  line-height: 1.25;
+}
+.role{
+  color: var(--muted);
+  font-weight: 600;
+}
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+.list{ margin:0; padding-left:18px; }
+.item{ margin:0 0 10px; }
+
+/* ==== Footer ==== */
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:18px;
+}
+
+/* ==== จัดชื่อ + role ให้อยู่ตรงกลาง ==== */
+.title{
+  text-align: center;
+}
+
+/* ==== Experience ==== */
+.exp-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.exp-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+}
+.exp-logo{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.exp-content{
+  flex:1;
+}
+.exp-title{
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+}
+.exp-time{
+  color: var(--muted);
+  font-size:12px;
+}
+.exp-subtitle{
+  color: var(--fg);
+  font-size:14px;
+}
+
+/* ==== Showcase ==== */
+.showcase-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.showcase-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+}
+.showcase-logo{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.showcase-content{
+  flex:1;
+}
+.showcase-title{
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:6px;
+}
+.showcase-time{
+  color: var(--muted);
+  font-size:12px;
+}
+.showcase-subtitle{
+  color: var(--fg);
+  font-size:14px;
+}
+
+/* ==== Lightbox สำหรับ Showcase เท่านั้น ==== */
+.showcase-lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 200;
+}
+
+.showcase-lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.showcase-lightbox:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.showcase-lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+}
+
+.showcase-lightbox .close::before,
+.showcase-lightbox .close::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  width: 20px;
+  height: 4px;
+  background: #fff;
+}
+.showcase-lightbox .close::before { transform: rotate(45deg); }
+.showcase-lightbox .close::after  { transform: rotate(-45deg); }
