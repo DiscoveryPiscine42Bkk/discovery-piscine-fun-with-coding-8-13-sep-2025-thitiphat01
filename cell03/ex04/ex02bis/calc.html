@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #calcForm {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+
+    #calcForm input[type="text"],
+    #calcForm select {
+      font-size: 1.2em;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    #calcForm input[type="text"]:focus,
+    #calcForm select:focus {
+      border-color: #007bff;
+    }
+
+    #calcForm input[type="submit"] {
+      font-size: 1.2em;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #calcForm input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #calcForm input[type="text"],
+    #calcForm select,
+    #calcForm input[type="submit"] {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form id="calcForm">
+    <input type="text" id="left" placeholder="Left Number" step="any" required>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="right" placeholder="Right Number" step="any" required>
+    <input type="submit" value="Try me!">
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      $('#calcForm').on('submit', function(event) {
+        event.preventDefault();
+
+        const left = $('#left').val();
+        const operator = $('#operator').val();
+        const right = $('#right').val();
+
+        if (!isNumber(left) || !isNumber(right) || parseFloat(left) < 0 || parseFloat(right) < 0) {
+          alert('Error: Please enter valid numbers.');
+          console.log('Error: input.');
+          return;
+        }
+
+        const leftNum = parseFloat(left);
+        const rightNum = parseFloat(right);
+
+        if ((operator === '/' && rightNum === 0) || (operator === '%' && rightNum === 0)) {
+          alert("It's over 9000!");
+          console.log("It's over 9000!");
+          return;
+        } else {
+          let result;
+          switch (operator) {
+            case '+':
+              result = leftNum + rightNum;
+              break;
+            case '-':
+              result = leftNum - rightNum;
+              break;
+            case '*':
+              result = leftNum * rightNum;
+              break;
+            case '/':
+              result = leftNum / rightNum;
+              break;
+            case '%':
+              result = leftNum % rightNum;
+              break;
+          }
+          alert('Result: ' + result);
+          console.log('Result: ' + result);
+        }
+      });
+
+      function isNumber(value) {
+        return /^-?\d+$/.test(value);
+      }
+
+      setInterval(function() {
+        alert('Please, use me...');
+      }, 30000);
+    });
+  </script>
+</body>
+</html>

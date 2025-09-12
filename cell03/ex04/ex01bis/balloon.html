@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode the Balloon</title>
+    <link rel="stylesheet" href="balloon.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+
+    <script>
+        $(document).ready(function () {
+            let balloonSize = 200;
+            let colorIndex = 0;
+            const colors = ['red', 'green', 'blue'];
+
+            function changeColor(forward = true) {
+                if (forward) {
+                    colorIndex = (colorIndex + 1) % colors.length;
+                } else {
+                    colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+                }
+                $('#balloon').css('background-color', colors[colorIndex]);
+            }
+
+            $('#balloon').on('click', function () {
+                if (balloonSize < 420) {
+                    balloonSize += 10;
+                    $(this).css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px'
+                    });
+                    changeColor(true);
+                } else {
+                    balloonSize = 200;
+                    $(this).css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px',
+                        'background-color': 'red'
+                    });
+                    colorIndex = 0;
+                }
+            });
+
+            $('#balloon').on('mouseleave', function () {
+                if (balloonSize > 200) {
+                    balloonSize -= 5;
+                    $(this).css({
+                        'width': balloonSize + 'px',
+                        'height': balloonSize + 'px'
+                    });
+                    changeColor(false);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
